@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookMitra Shop</title>
+
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+       header {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 200px;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-btn {
+            background: orange;
+            color: white;
+        }
+
+        .buy-btn {
+            background: green;
+            color: white;
+        }
+
+        #cart {
+            background: white;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <h1>📚 BookMitra</h1>
+    <p>Your Friend in the World of Books</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="Shopping.html">Shopping</a>
+    </nav>
+</header>
+
+
+<header>
+    <h1>🛒 BookMitra Store</h1>
+</header>
+
+<h2>Buy Your Favorite Books</h2>
+
+<div class="container">
+
+    <!-- Book 1 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg">
+        <h3>Atomic Habits</h3>
+        <p>₹399</p>
+
+        <button class="cart-btn" onclick="addToCart('Atomic Habits')">Add to Cart</button>
+
+        <a href="https://www.amazon.in/dp/1847941834" target="_blank">
+            <button class="buy-btn">Buy Now</button>
+        </a>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+        <h3>Rich Dad Poor Dad</h3>
+        <p>₹350</p>
+
+        <button class="cart-btn" onclick="addToCart('Rich Dad Poor Dad')">Add to Cart</button>
+
+        <a href="https://www.amazon.in/dp/1612680194" target="_blank">
+            <button class="buy-btn">Buy Now</button>
+        </a>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71UwSHSZRnS.jpg">
+        <h3>Think & Grow Rich</h3>
+        <p>₹299</p>
+
+        <button class="cart-btn" onclick="addToCart('Think & Grow Rich')">Add to Cart</button>
+
+        <a href="https://www.amazon.in/dp/1585424331" target="_blank">
+            <button class="buy-btn">Buy Now</button>
+        </a>
+    </div>
+
+</div>
+
+<!-- CART SECTION -->
+<div id="cart">
+    <h2>🛍 Your Cart</h2>
+    <ul id="cartItems"></ul>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(book) {
+    cart.push(book);
+
+    let list = document.getElementById("cartItems");
+    let item = document.createElement("li");
+    item.innerText = book;
+
+    list.appendChild(item);
+
+    alert(book + " added to cart 🛒");
+}
+</script>
+
+</body>
+</html>

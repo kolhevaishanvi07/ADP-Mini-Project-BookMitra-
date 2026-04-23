@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookMitra</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px;
+            background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center;
+            background-size: cover;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background: orange;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 200px;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+
+        .categories {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cat-box {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        .quote {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 BookMitra</h1>
+    <p>Your Friend in the World of Books</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+
+<div class="hero">
+    <h2>Welcome to BookMitra 📖</h2>
+    <p>Discover, Read, and Grow with Books</p>
+    <a href="books.html">
+    <button>Explore Books</button>
+</a>
+
+</div>
+
+<h2>🔥 Featured Books</h2>
+
+<div class="container">
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+        <h3>Rich Dad Poor Dad</h3>
+        <p>Financial freedom mindset</p>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg">
+        <h3>Atomic Habits</h3>
+        <p>Build powerful habits</p>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+        <h3>7 Habits</h3>
+        <p>Life-changing habits</p>
+    </div>
+
+</div>
+
+<div class="categories">
+    <h2>📂 Categories</h2>
+    <span class="cat-box" onclick="filterBooks('all')">All</span>
+    <span class="cat-box" onclick="filterBooks('self')">Self-Help</span>
+    <span class="cat-box" onclick="filterBooks('finance')">Finance</span>
+    <span class="cat-box" onclick="filterBooks('tech')">Technology</span>
+</div>
+
+<div class="container">
+
+    <div class="card self">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg">
+        <h3>Atomic Habits</h3>
+    </div>
+
+    <div class="card finance">
+        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+        <h3>Rich Dad Poor Dad</h3>
+    </div>
+
+    <div class="card self">
+        <img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+        <h3>7 Habits</h3>
+    </div>
+
+    <div class="card tech">
+        <img src="https://m.media-amazon.com/images/I/71UwSHSZRnS.jpg">
+        <h3>Think & Grow Rich</h3>
+    </div>
+
+    <div class="card self">
+        <img src="https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg">
+        <h3>Do Epic Shit</h3>
+    </div>
+
+</div>
+
+<script>
+function filterBooks(category) {
+    let cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        if (category === 'all') {
+            card.style.display = "block";
+        } else if (card.classList.contains(category)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+<div class="quote">
+    <p>"A reader lives a thousand lives before he dies."</p>
+</div>
+
+<footer>
+    <p>© 2026 BookMitra | Made by You 💙</p>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - BookMitra</title>
+    <style>
+       body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            background: white;
+            margin: 30px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #315141;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>📚 BookMitra</h1>
+    <p>Your Friend in the World of Books</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+<form action=https://formspree.io/f/mwvwbebn method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+    <script>
+function clearForm() {
+    alert("Message Sent Successfully 😊");
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+    return false; // prevents page reload
+}
+</script>
+
+</form>
+
+<br>
+
+</body>
+</html>

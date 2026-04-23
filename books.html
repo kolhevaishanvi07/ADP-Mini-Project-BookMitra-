@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookMitra</title>
+
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px gray;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .more {
+            display: none;
+        }
+
+        button {
+            background: green;
+            color: white;
+            padding: 6px;
+            border: none;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        /* POPUP */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 30%;
+            width: 40%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        /* PAYMENT */
+        #paymentBox {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 30%;
+            width: 40%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        .paytab {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 BookMitra</h1>
+    <p>Your Friend in the World of Books</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+<h2>Top Motivational Books</h2>
+
+<div class="container">
+
+<!-- BOOK CARD -->
+    <div class="card" onclick="showBook('Rich Dad Poor Dad','Learn financial freedom mindset.',299)">
+        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+        <h3>Rich Dad Poor Dad</h3>
+         📘Rich Dad Poor Dad by Robert Kiyosaki explains the difference between two mindsets about money:
+
+Poor Dad (real father): Believes in job security, saving money, and avoiding risks.
+Rich Dad (friend’s father): Believes in investing, taking risks, and making money work for you.
+     <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('Atomic Habits','Build powerful habits daily.',399)">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg">
+        <h3>Atomic Habits</h3>
+        This book explains how small daily habits can lead to big success. It teaches how to build good habits, break bad ones, and improve your life step by step using simple systems.
+   <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('Think and Grow Rich','Success principles and mindset.',299)">
+        <img src="https://m.media-amazon.com/images/I/71UwSHSZRnS.jpg">
+        <h3>Think and Grow Rich</h3>
+        A classic success book that shows how thoughts shape reality. It focuses on desire, belief, persistence, and mindset to achieve wealth and personal success.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('The Power of Now','Live in present moment.',280)">
+        <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg">
+        <h3>The Power of Now</h3>
+        This book teaches the importance of living in the present moment. It helps reduce stress and overthinking by focusing on “now” instead of past or future worries.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('Do Epic Shit','Motivation for youth.',250)">
+        <img src="https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg">
+        <h3>Do Epic Shit</h3>
+        A collection of practical life advice on success, failure, money, and self-growth. It motivates readers to take bold actions and learn from mistakes.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('You Can Win','Positive thinking.',270)">
+        <img src="https://m.media-amazon.com/images/I/71tbalAHYCL.jpg">
+        <h3>You Can Win</h3>
+        A self-help book focused on positive thinking, discipline, and values. It teaches how to build confidence and achieve success in life.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('The Alchemist','Follow your dreams.',300)">
+        <img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
+        <h3>The Alchemist</h3>
+        This book is about creativity and overcoming fear. It encourages you to follow your passion, trust your ideas, and live a creative life without worrying about failure.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('7 Habits','Build strong habits.',400)">
+        <img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+        <h3>7 Habits</h3>
+        Explains how people think about money. It teaches that behavior and mindset are more important than technical knowledge when it comes to wealth and financial success.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('Start With Why','Find your purpose.',330)">
+        <img src="https://m.media-amazon.com/images/I/81BE7eeKzAL.jpg">
+        <h3>Start With Why</h3>
+       A comparison between two mindsets about money. It teaches financial education, investing, and how to make money work for you instead of working for money.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('Can’t Hurt Me','Mental toughness.',380)">
+        <img src="https://m.media-amazon.com/images/I/71KilybDOoL.jpg">
+        <h3>Can’t Hurt Me</h3>
+       A powerful story of mental toughness. It shows how to overcome pain, fear, and limits by building discipline and a strong mindset.
+    <button onclick="toggle(this)">Read More</button>
+    </div>
+
+    <div class="card" onclick="showBook('The Intelligent Investor','Stock market investing basics.',350)">
+    <img src="https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg">
+    <h3>The Intelligent Investor</h3>
+    <p>
+        A guide to value investing...
+        <span class="more">It teaches long-term investment strategies and risk management.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Sapiens','Human history explained.',320)">
+    <img src="https://m.media-amazon.com/images/I/713jIoMO3UL._AC_UF1000,1000_QL80_.jpg">
+    <h3>Sapiens</h3>
+    <p>
+        History of mankind...
+        <span class="more">Explains evolution, culture, and development of humans.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Rework','Business without stress.',300)">
+    <img src="https://m.media-amazon.com/images/I/71KilybDOoL._AC_UF1000,1000_QL80_.jpg">
+    <h3>Rework</h3>
+    <p>
+        New way of business...
+        <span class="more">Shows simple and practical ways to start and run business.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('The Lean Startup','Startup growth ideas.',330)">
+    <img src="https://m.media-amazon.com/images/I/81-QB7nDh4L._AC_UF1000,1000_QL80_.jpg">
+    <h3>The Lean Startup</h3>
+    <p>
+        Build startups smartly...
+        <span class="more">Focus on innovation, testing, and customer feedback.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Richest Man in Babylon','Money rules.',300)">
+    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg">
+    <h3>The Richest Man in Babylon</h3>
+    <p>
+        Financial lessons...
+        <span class="more">Ancient rules of saving, investing, and wealth building.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Who Moved My Cheese','Handle change.',280)">
+    <img src="https://m.media-amazon.com/images/I/71KilybDOoL._AC_UF1000,1000_QL80_.jpg">
+    <h3>Who Moved My Cheese</h3>
+    <p>
+        Dealing with change...
+        <span class="more">Simple story teaching how to adapt to life changes.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('The Magic of Thinking Big','Think big for success.',300)">
+    <img src="https://m.media-amazon.com/images/I/71x0WzM2FOL._AC_UF1000,1000_QL80_.jpg">
+    <h3>The Magic of Thinking Big</h3>
+    <p>
+        Power of thinking...
+        <span class="more">Boost confidence and achieve bigger goals.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Awaken the Giant Within','Self control.',340)">
+    <img src="https://m.media-amazon.com/images/I/71zytzrg6lL._AC_UF1000,1000_QL80_.jpg">
+    <h3>Awaken the Giant Within</h3>
+    <p>
+        Control your life...
+        <span class="more">Take charge of emotions, decisions, and destiny.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('Unlimited Power','Achieve success.',320)">
+    <img src="https://m.media-amazon.com/images/I/81eB+7+CkUL._AC_UF1000,1000_QL80_.jpg">
+    <h3>Unlimited Power</h3>
+    <p>
+        Personal development...
+        <span class="more">Use mindset and strategies to achieve success.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+<div class="card" onclick="showBook('The Compound Effect','Small steps big results.',300)">
+     <img src="https://m.media-amazon.com/images/I/81WojUxbbFL._AC_UF1000,1000_QL80_.jpg">
+    <h3>The Compound Effect</h3>
+    <p>
+        Success formula...
+        <span class="more">Small daily actions create massive success over time.</span>
+    </p>
+    <button onclick="toggle(this)">Read More</button>
+</div>
+
+
+</div>
+
+<!-- POPUP -->
+<div id="popup">
+    <h2 id="title"></h2>
+    <p id="desc"></p>
+    <h3 id="price"></h3>
+
+    <button onclick="openPayment()">Buy Now</button>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<!-- PAYMENT -->
+<div id="paymentBox">
+
+    <h2>Select Payment Method</h2>
+
+    <button onclick="selectMethod('upi')">UPI</button><br><br>
+    <button onclick="selectMethod('card')">Card</button><br><br>
+    <button onclick="selectMethod('net')">Net Banking</button>
+
+    <div id="upi" class="paytab">
+        <input placeholder="Enter UPI ID"><br><br>
+        <button onclick="paySuccess()">Pay</button>
+    </div>
+
+    <div id="card" class="paytab">
+        <input placeholder="Card Number"><br><br>
+        <input placeholder="MM/YY">
+        <input placeholder="CVV"><br><br>
+        <button onclick="paySuccess()">Pay</button>
+    </div>
+
+    <div id="net" class="paytab">
+        <select>
+            <option>SBI</option>
+            <option>HDFC</option>
+        </select><br><br>
+        <button onclick="paySuccess()">Pay</button>
+    </div>
+
+    <br>
+    <button onclick="closePayment()">Cancel</button>
+</div>
+
+<script>
+
+let currentBook = "";
+let currentPrice = 0;
+
+// SHOW BOOK
+function showBook(title, desc, price) {
+    currentBook = title;
+    currentPrice = price;
+
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("title").innerText = title;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("price").innerText = "Price: ₹" + price;
+}
+
+// CLOSE POPUP
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// READ MORE
+function toggle(btn) {
+    let more = btn.previousElementSibling;
+
+    if (more.style.display === "inline") {
+        more.style.display = "none";
+        btn.innerText = "Read More";
+    } else {
+        more.style.display = "inline";
+        btn.innerText = "Read Less";
+    }
+}
+
+// OPEN PAYMENT
+function openPayment() {
+    document.getElementById("paymentBox").style.display = "block";
+}
+
+// CLOSE PAYMENT
+function closePayment() {
+    document.getElementById("paymentBox").style.display = "none";
+
+    document.getElementById("upi").style.display = "none";
+    document.getElementById("card").style.display = "none";
+    document.getElementById("net").style.display = "none";
+}
+
+// SELECT METHOD
+function selectMethod(method) {
+    document.getElementById("upi").style.display = "none";
+    document.getElementById("card").style.display = "none";
+    document.getElementById("net").style.display = "none";
+
+    document.getElementById(method).style.display = "block";
+}
+
+// PAYMENT SUCCESS
+function paySuccess() {
+    alert("✅ Payment Successful for " + currentBook + " (₹" + currentPrice + ")");
+    closePayment();
+    closePopup();
+}
+
+</script>
+
+</body>
+</html>
